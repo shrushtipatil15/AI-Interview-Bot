@@ -1,0 +1,197 @@
+/* Create Interview Page */
+
+.create-interview-container {
+
+    min-height: 100vh;
+    width: 100%;
+
+    background: #0b1220;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+}
+
+
+/* Heading */
+
+.create-interview-container h1 {
+
+    color: white;
+
+    font-size: 36px;
+
+    margin-bottom: 35px;
+
+    text-align: center;
+
+    font-weight: 700;
+}
+
+
+/* Form Card */
+
+.create-interview-container form {
+
+    width: 650px;        /* Increased width */
+
+    background: #111827;
+
+    padding: 45px;
+
+    border-radius: 20px;
+
+    border: 1px solid #263449;
+
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.5);
+
+}
+
+
+/* Inputs */
+
+.create-interview-container input,
+.create-interview-container select {
+
+
+    width: 100%;
+
+    height: 52px;
+
+    padding: 0 18px;
+
+    margin-bottom: 22px;
+
+
+    background: #1f2937;
+
+    border: 1px solid #374151;
+
+    border-radius: 12px;
+
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: 0.3s;
+
+}
+
+
+
+.create-interview-container input:focus,
+.create-interview-container select:focus {
+
+    border-color: #38bdf8;
+
+    box-shadow:
+        0 0 10px rgba(56,189,248,0.3);
+
+}
+
+
+
+.create-interview-container input::placeholder {
+
+    color: #9ca3af;
+
+}
+
+
+
+/* Dropdown */
+
+.create-interview-container select {
+
+    cursor:pointer;
+
+}
+
+
+
+/* Button */
+
+
+.create-interview-container button {
+
+
+    width:100%;
+
+    height:55px;
+
+
+    margin-top:10px;
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #06b6d4
+    );
+
+
+    border:none;
+
+    border-radius:12px;
+
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:600;
+
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+
+.create-interview-container button:hover {
+
+
+    transform:translateY(-3px);
+
+
+    box-shadow:
+
+    0 12px 25px rgba(37,99,235,0.5);
+
+}
+
+
+
+/* Responsive */
+
+
+@media(max-width:750px){
+
+    .create-interview-container form{
+
+        width:95%;
+
+        padding:30px;
+
+    }
+
+
+    .create-interview-container h1{
+
+        font-size:28px;
+
+    }
+
+}

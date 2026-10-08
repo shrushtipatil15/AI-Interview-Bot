@@ -1,0 +1,279 @@
+/* Result Page */
+
+.result-container {
+
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    color: white;
+
+}
+
+
+/* Heading */
+
+.result-container h1 {
+
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+
+    color: #ffffff;
+
+}
+
+
+/* Score Card */
+
+.score-card {
+
+    background: linear-gradient(
+        135deg,
+        #111827,
+        #1e293b
+    );
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.4);
+
+    margin-bottom: 35px;
+
+}
+
+
+.score-card h2 {
+
+    color: #38bdf8;
+
+    font-size: 30px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.score-card p {
+
+    font-size: 18px;
+
+    color: #cbd5e1;
+
+    margin: 10px;
+
+}
+
+
+/* Strengths and Weaknesses Section */
+
+.feedback-grid {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(300px,1fr));
+
+    gap: 25px;
+
+}
+
+
+.feedback-card {
+
+    background: #111827;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    border: 1px solid #1e293b;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.3);
+
+}
+
+
+.feedback-card h3 {
+
+    color: #38bdf8;
+
+    margin-bottom: 20px;
+
+    font-size: 22px;
+
+}
+
+
+.feedback-card p {
+
+    background: #020617;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    color: #e2e8f0;
+
+    margin-bottom: 10px;
+
+}
+
+
+/* =========================================
+   No Areas to Improve Message
+   ========================================= */
+
+.no-improvements {
+
+    background: #020617 !important;
+
+    color: #22c55e !important;
+
+    padding: 18px !important;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    line-height: 1.6;
+
+    margin-top: 20px;
+
+    border: 1px solid rgba(34, 197, 94, 0.25);
+
+}
+
+
+/* =========================================
+   No Strengths Message
+   ========================================= */
+
+.no-feedback {
+
+    background: #020617 !important;
+
+    color: #94a3b8 !important;
+
+    padding: 18px !important;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    line-height: 1.6;
+
+    margin-top: 20px;
+
+}
+
+
+/* Question Review */
+
+.review-title {
+
+    margin-top: 45px;
+
+    margin-bottom: 20px;
+
+    color: white;
+
+    font-size: 28px;
+
+}
+
+
+/* Answer Cards */
+
+.answer-card {
+
+    background: #111827;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    margin-bottom: 20px;
+
+    border-left: 4px solid #2563eb;
+
+    box-shadow:
+    0 8px 25px rgba(0,0,0,0.3);
+
+}
+
+
+.answer-card h3 {
+
+    color: #38bdf8;
+
+    margin-bottom: 15px;
+
+}
+
+
+.answer-card p {
+
+    color: #cbd5e1;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+
+}
+
+
+.answer-card b {
+
+    color: white;
+
+}
+
+
+/* Loading */
+
+.loading {
+
+    text-align: center;
+
+    margin-top: 150px;
+
+    color: white;
+
+    font-size: 24px;
+
+}
+
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .result-container{
+
+        padding:20px 10px;
+
+    }
+
+
+    .result-container h1{
+
+        font-size:28px;
+
+    }
+
+
+    .score-card h2{
+
+        font-size:24px;
+
+    }
+
+}
