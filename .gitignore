@@ -10,3 +10,8 @@ dist/
 build/
 .vscode/
 .idea/
+.env.*
+!.env.example
+.venv/
+backend/.venv/
+frontend/.venv/

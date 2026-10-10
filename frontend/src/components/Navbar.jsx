@@ -13,7 +13,7 @@ function Navbar() {
                 className="logo"
                 onClick={() => navigate("/")}
             >
-                AI Interview Bot
+                Intervoro AI
             </div>
 
             <div className="nav-menu">
