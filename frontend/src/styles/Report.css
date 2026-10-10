@@ -1,0 +1,401 @@
+/* Main report page */
+
+.report-page {
+    min-height: 75vh;
+    padding: 55px 24px;
+    background: #08111f;
+    color: #e8eef8;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+.report-page *,
+.report-page *::before,
+.report-page *::after {
+    box-sizing: border-box;
+}
+
+.report-container {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 40px;
+    background: #0e1d2c;
+    border: 1px solid #1d3046;
+    border-radius: 22px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+/* Header */
+
+.report-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.report-eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+    color: #91bfff;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.report-header h1,
+.report-status h1 {
+    margin: 0 0 15px;
+    color: #4da3ff;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.report-header > p,
+.report-status > p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: #a9bfd7;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* Summary cards */
+
+.report-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 35px;
+}
+
+.report-card {
+    min-width: 0;
+    padding: 25px 18px;
+    text-align: center;
+    background: #081321;
+    border: 1px solid #263d56;
+    border-radius: 15px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.report-card:hover {
+    transform: translateY(-3px);
+    border-color: #438ff5;
+}
+
+.report-card-label {
+    display: block;
+    color: #a9bfd7;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.report-card h2 {
+    margin: 14px 0 0;
+    color: #ffffff;
+    font-size: 30px;
+    overflow-wrap: anywhere;
+}
+
+.report-card h2 small {
+    color: #9aafc8;
+    font-size: 15px;
+}
+
+.report-card .report-grade {
+    color: #4da3ff;
+}
+
+/* Report sections */
+
+.report-section {
+    margin-bottom: 28px;
+    padding: 28px;
+    background: #081321;
+    border: 1px solid #263d56;
+    border-radius: 16px;
+}
+
+.report-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.report-section-number {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 13px;
+    background: #142c48;
+    color: #69b1ff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.report-section-heading h2 {
+    margin: 0 0 7px;
+    color: #4da3ff;
+    font-size: 23px;
+}
+
+.report-section-heading p {
+    margin: 0;
+    color: #9eb2ca;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Strengths and weaknesses */
+
+.report-list {
+    margin: 0;
+    padding-left: 25px;
+}
+
+.report-list li {
+    margin-bottom: 13px;
+    padding-left: 5px;
+    color: #d7e3f2;
+    font-size: 15px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+.report-list li:last-child {
+    margin-bottom: 0;
+}
+
+.strengths-list li::marker {
+    color: #5bd6a1;
+}
+
+.weaknesses-list li::marker {
+    color: #ffb86b;
+}
+
+.report-empty {
+    padding: 18px;
+    background: #0e1d2c;
+    border-radius: 10px;
+    color: #a9bfd7;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* Question-wise answers */
+
+.report-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.report-answer {
+    min-width: 0;
+    padding: 24px;
+    background: #0e1d2c;
+    border: 1px solid #263d56;
+    border-radius: 14px;
+}
+
+.answer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #263d56;
+}
+
+.answer-top h3 {
+    margin: 0;
+    color: #4da3ff;
+    font-size: 19px;
+}
+
+.answer-score {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #173454;
+    border: 1px solid #28537e;
+    border-radius: 9px;
+    color: #91c7ff;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.answer-content,
+.answer-feedback {
+    margin-bottom: 20px;
+}
+
+.answer-content h4,
+.answer-feedback h4 {
+    margin: 0 0 9px;
+    color: #91bfff;
+    font-size: 15px;
+}
+
+.answer-content p,
+.answer-feedback p {
+    margin: 0;
+    color: #d0dced;
+    font-size: 15px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+}
+
+.answer-feedback {
+    margin-bottom: 0;
+    padding: 18px;
+    background: #091a2c;
+    border-left: 3px solid #4da3ff;
+    border-radius: 7px;
+}
+
+/* Footer and buttons */
+
+.report-footer {
+    padding-top: 15px;
+    text-align: center;
+}
+
+.report-footer > p {
+    color: #a9bfd7;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.report-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 14px 25px;
+    background: linear-gradient(100deg, #2864f0, #7939ed);
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.report-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Loading and error states */
+
+.report-status {
+    text-align: center;
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.report-status > p {
+    margin-top: 15px;
+}
+
+.report-status .report-error {
+    color: #ff9c9c;
+}
+
+.report-loader {
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 25px;
+    border: 4px solid #263d56;
+    border-top-color: #4da3ff;
+    border-radius: 50%;
+    animation: report-spin 0.8s linear infinite;
+}
+
+@keyframes report-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive design */
+
+@media (max-width: 850px) {
+    .report-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .report-container {
+        padding: 28px;
+    }
+}
+
+@media (max-width: 520px) {
+    .report-page {
+        padding: 25px 12px;
+    }
+
+    .report-container {
+        padding: 20px 14px;
+        border-radius: 15px;
+    }
+
+    .report-header h1,
+    .report-status h1 {
+        font-size: 30px;
+    }
+
+    .report-header > p,
+    .report-status > p {
+        font-size: 15px;
+    }
+
+    .report-summary {
+        gap: 10px;
+    }
+
+    .report-card {
+        padding: 20px 10px;
+    }
+
+    .report-card h2 {
+        font-size: 24px;
+    }
+
+    .report-card-label {
+        font-size: 12px;
+    }
+
+    .report-section {
+        padding: 18px 14px;
+    }
+
+    .report-section-heading {
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .report-section-number {
+        width: 38px;
+        height: 38px;
+    }
+
+    .report-section-heading h2 {
+        font-size: 19px;
+    }
+
+    .report-answer {
+        padding: 17px 13px;
+    }
+
+    .answer-top h3 {
+        font-size: 17px;
+    }
+}
