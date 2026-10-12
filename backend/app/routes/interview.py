@@ -85,16 +85,15 @@ async def submit_answer(
             detail="Interview not found"
         )
 
-    if (
-        data.question_number < 1
-        or data.question_number > len(interview["questions"])
-    ):
+    questions = interview.get("questions", [])
+
+    if data.question_number < 1 or data.question_number > len(questions):
         raise HTTPException(
             status_code=400,
             detail="Invalid question number"
         )
 
-    question = interview["questions"][data.question_number - 1]
+    question = questions[data.question_number - 1]
 
     evaluation = evaluate_answer(question, data.answer)
 
@@ -128,7 +127,7 @@ async def get_result(
     current_user: dict = Depends(get_current_user)
 ):
     try:
-        ObjectId(interview_id)
+        object_id = ObjectId(interview_id)
     except Exception:
         raise HTTPException(
             status_code=400,
@@ -136,7 +135,7 @@ async def get_result(
         )
 
     interview = interviews_collection.find_one({
-        "_id": ObjectId(interview_id),
+        "_id": object_id,
         "user_id": current_user["id"]
     })
 
@@ -146,10 +145,12 @@ async def get_result(
             detail="Interview not found"
         )
 
-    answers = list(answers_collection.find({
-        "interview_id": interview_id,
-        "user_id": current_user["id"]
-    }).sort("question_number", 1))
+    answers = list(
+        answers_collection.find({
+            "interview_id": interview_id,
+            "user_id": current_user["id"]
+        }).sort("question_number", 1)
+    )
 
     if not answers:
         raise HTTPException(
@@ -158,9 +159,7 @@ async def get_result(
         )
 
     total_questions = len(answers)
-
     total_score = sum(answer["score"] for answer in answers)
-
     average_score = round(total_score / total_questions, 2)
 
     if average_score >= 9:
@@ -234,6 +233,14 @@ async def get_report(
     interview_id: str,
     current_user: dict = Depends(get_current_user)
 ):
+    try:
+        ObjectId(interview_id)
+    except Exception:
+        raise HTTPException(
+            status_code=400,
+            detail="Invalid Interview ID"
+        )
+
     report = reports_collection.find_one({
         "interview_id": interview_id,
         "user_id": current_user["id"]
@@ -300,6 +307,67 @@ async def get_interview_history(
         })
 
     return {"interviews": history}
+
+
+# ==================================================
+# Get Answered Questions for Concept Practice
+# ==================================================
+
+@router.get("/answered-questions/{interview_id}")
+async def get_answered_questions(
+    interview_id: str,
+    current_user: dict = Depends(get_current_user)
+):
+    try:
+        object_id = ObjectId(interview_id)
+    except Exception:
+        raise HTTPException(
+            status_code=400,
+            detail="Invalid Interview ID"
+        )
+
+    interview = interviews_collection.find_one({
+        "_id": object_id,
+        "user_id": current_user["id"]
+    })
+
+    if not interview:
+        raise HTTPException(
+            status_code=404,
+            detail="Interview not found"
+        )
+
+    saved_answers = list(
+        answers_collection.find({
+            "interview_id": interview_id,
+            "user_id": current_user["id"]
+        }).sort("submitted_at", -1)
+    )
+
+    # Include only question numbers that have saved answers.
+    answered_numbers = {
+        answer["question_number"]
+        for answer in saved_answers
+        if answer.get("question_number") is not None
+    }
+
+    questions = interview.get("questions", [])
+
+    answered_questions = [
+        {
+            "question_number": number,
+            "question": questions[number - 1]
+        }
+        for number in sorted(answered_numbers)
+        if 1 <= number <= len(questions)
+    ]
+
+    return {
+        "interview_id": interview_id,
+        "total_questions": len(questions),
+        "answered_count": len(answered_questions),
+        "answered_questions": answered_questions
+    }
 
 
 # ==================================================

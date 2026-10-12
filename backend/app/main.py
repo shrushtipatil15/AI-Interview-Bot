@@ -5,6 +5,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.routes.auth import router as auth_router
 from app.routes.interview import router as interview_router
 from app.routes.resume import router as resume_router
+from app.routes.concept_transfer import (
+    router as concept_transfer_router
+)
 
 app = FastAPI(
     title="AI Interview Bot API",
@@ -38,6 +41,12 @@ app.include_router(
 app.include_router(
     resume_router,
     prefix="/api/resume"
+)
+
+# Concept Transfer Verification API
+app.include_router(
+    concept_transfer_router,
+    prefix="/api/concept-transfer"
 )
 
 
